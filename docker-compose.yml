@@ -3,7 +3,7 @@ services:
     image: timescale/timescaledb:latest-pg16
     env_file: .env
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./backend/migrations:/docker-entrypoint-initdb.d:ro

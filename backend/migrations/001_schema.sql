@@ -20,7 +20,7 @@ CREATE TABLE measurements (
     flight_id   INTEGER NOT NULL REFERENCES flights(id) ON DELETE CASCADE,
     sensor_id   INTEGER NOT NULL REFERENCES sensors(id),
     ts          TIMESTAMPTZ NOT NULL,
-    valued      DOUBLE PRECISION,
+    value      DOUBLE PRECISION,
     PRIMARY KEY (flight_id, sensor_id, ts)
 );
 
@@ -56,7 +56,7 @@ CREATE TABLE evaluation_runs (
 );
 
 INSERT INTO sensors (name, unit, expected_min, expected_max, noise_std) VALUES
-    ('altitude',            'm',        0,      200000,     5.0),
+    ('altitude',            'm',        0,      400000,     5.0),
     ('velocity',            'm/s',      0,      8000,       1.0),
     ('acceleration',        'm/s^2',    20,     60,         0.3),
     ('chamber_pressure',    'bar',      0,      300,        1.5),
